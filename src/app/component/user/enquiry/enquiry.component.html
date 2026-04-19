@@ -1,0 +1,114 @@
+<p>enquiry works!</p>
+```html
+<div class="container-fluid">
+
+  <div class="row p-3 bg-secondary text-white">
+    <h1>Enquiry Form</h1>
+    <h2>Reactive Form</h2>
+  </div>
+
+  <div class="row mt-3">
+
+    <!-- Form Section -->
+    <div class="col-md-6">
+
+      <form class="row g-3" [formGroup]="Enquiryform">
+
+        <!-- Name -->
+        <div class="col-md-4">
+          <label for="Name" class="form-label">name</label>
+          <input type="text" class="form-control" id="name" formControlName="name">
+
+          <div class="text-danger">
+            @if(Enquiryform.controls['name'].touched && Enquiryform.controls['name'].errors?.['required']){
+              <span>Name is required</span>
+            }
+            @else if(Enquiryform.controls['name'].errors?.['minlength']){
+              <span>Minimum 2 characters required</span>
+            }
+            @else if(Enquiryform.controls['name'].errors?.['maxlength']){
+              <span>Maximum 8 characters allowed</span>
+            }
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="col-md-4">
+          <label for="email" class="form-label">email</label>
+          <input type="email" class="form-control" id="email" formControlName="email">
+
+          <div class="text-danger">
+            @if(Enquiryform.get('email')?.touched && Enquiryform.get('email')?.errors?.['required']){
+              <span>Email is required</span>
+            }
+            @else if(Enquiryform.get('email')?.errors?.['email']){
+              <span>Enter valid email</span>
+            }
+          </div>
+        </div>
+
+        <!-- Mobile -->
+        <div class="col-md-4">
+          <label for="Mobile" class="form-label">mobile</label>
+          <input type="text" class="form-control" id="mobile" formControlName="mobile">
+
+          <div class="text-danger">
+            @if(Enquiryform.get('mobile')?.touched && Enquiryform.get('mobile')?.errors?.['required']){
+              <span>Mobile number required</span>
+            }
+            @else if(Enquiryform.get('mobile')?.errors?.['pattern']){
+              <span>Enter valid 10 digit mobile number</span>
+            }
+          </div>
+        </div>
+
+        <!-- Subject -->
+        <div class="col-md-6">
+          <label for="Subject" class="form-label">subject</label>
+          <textarea class="form-control" id="subject" formControlName="subject"></textarea>
+
+          <div class="text-danger">
+            @if(Enquiryform.get('subject')?.touched && Enquiryform.get('subject')?.errors?.['required']){
+              <span>Subject is required</span>
+            }
+            @else if(Enquiryform.get('subject')?.errors?.['minlength']){
+              <span>Minimum 5 characters required</span>
+            }
+          </div>
+        </div>
+
+        <!--Message-->
+        <div class="col-md-6">
+          <label for="Message" class="form-label">message</label>
+          <textarea name="message" id="message" formControlName="message" class="form-control"></textarea>
+          <div class="text-danger">
+            @if(Enquiryform.get('message')?.touched && Enquiryform.get('message')?.errors?.['required'])
+            {
+              <span>Message is required</span>
+            }
+            @else if (Enquiryform.get('message')?.errors?.['minlength']) {
+              <span>Minimum 10 characters</span>
+            }
+          </div>
+        </div>
+        
+        <!-- Buttons -->
+        <div class="col-12">
+          <button type="button" class="btn btn-primary m-2" (click)="save()">Submit</button>
+          <button type="reset" class="btn btn-secondary m-2">Reset</button>
+        </div>
+
+      </form>
+
+    </div>
+
+    <!-- Form JSON Preview -->
+    <div class="col-md-6">
+      <h5>Form Data Preview</h5>
+      {{ formsvalue | json }}
+    </div>
+
+  </div>
+
+</div>
+

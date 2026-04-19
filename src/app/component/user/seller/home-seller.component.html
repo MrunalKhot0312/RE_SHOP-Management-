@@ -1,0 +1,74 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow-lg p-4 registration-card">
+
+    <h3 class="text-center mb-3 text-primary fw-bold">Seller Registration</h3>
+
+    <div *ngIf="error" class="alert alert-danger text-center">{{error}}</div>
+
+    <form>
+      <div class="row">
+        <div class="col-12 mb-3">
+          <input type="text" placeholder="Full Name"
+            [(ngModel)]="seller.name" name="name"
+            class="form-control custom-input">
+        </div>
+
+        <div class="col-12 mb-3">
+          <input type="text" placeholder="Username"
+            [(ngModel)]="seller.username" name="username"
+            class="form-control custom-input">
+        </div>
+
+        <div class="col-12 mb-3">
+          <input type="email" placeholder="Email"
+            [(ngModel)]="seller.email" name="email"
+            class="form-control custom-input">
+        </div>
+
+        <div class="col-12 mb-3">
+          <input type="text" placeholder="Mobile"
+            [(ngModel)]="seller.mobile" name="mobile"
+            class="form-control custom-input">
+        </div>
+
+        <div class="col-12 mb-3">
+          <input type="text" placeholder="Address"
+            [(ngModel)]="seller.address" name="address"
+            class="form-control custom-input">
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <input type="text" placeholder="City"
+            [(ngModel)]="seller.city" name="city"
+            class="form-control custom-input">
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <input type="text" placeholder="State"
+            [(ngModel)]="seller.state" name="state"
+            class="form-control custom-input">
+        </div>
+
+        <div class="col-12 mb-3">
+          <input type="text" placeholder="Pincode"
+            [(ngModel)]="seller.pincode" name="pincode"
+            class="form-control custom-input">
+        </div>
+
+        <div class="col-12 mb-3">
+          <input type="password" placeholder="Password"
+            [(ngModel)]="seller.password" name="password"
+            class="form-control custom-input">
+        </div>
+      </div>
+
+      <button class="btn btn-gradient w-100 mt-2" (click)="save()">Register</button>
+
+      <p class="text-center mt-3">
+        Already have an account?
+        <a routerLink="/login" class="text-decoration-none text-primary fw-semibold">Login</a>
+      </p>
+    </form>
+
+  </div>
+</div>

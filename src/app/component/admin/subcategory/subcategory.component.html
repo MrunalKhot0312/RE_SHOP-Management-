@@ -1,0 +1,59 @@
+<div class="container mt-4">
+
+  <h3>SubCategory Management</h3>
+
+  <!-- CATEGORY DROPDOWN -->
+  <div class="mb-3">
+    <label>Select Category</label>
+    <select  class="form-control" [disabled]="!selectedCategoryId"
+            [(ngModel)]="newSubCategory.categoryId"
+            name="category" >
+
+
+      <option value="">-- Select Category --</option>
+
+      <option *ngFor="let c of categories" [value]="c.id">
+        {{ c.name }}
+      </option>
+    </select>
+  </div>
+
+  <!-- NAME -->
+  <div class="mb-3">
+    <input type="text"
+           [(ngModel)]="newSubCategory.name"
+           name="name"
+           placeholder="SubCategory Name"
+           class="form-control">
+  </div>
+
+  <!-- IMAGE -->
+  <div class="mb-3">
+    <input type="file"
+           (change)="onImageSelected($event)"
+           class="form-control">
+  </div>
+
+  <!-- IMAGE PREVIEW -->
+  <div class="mb-3">
+    <img *ngIf="imagePreview"
+         [src]="imagePreview"
+         width="100">
+  </div>
+
+  <!-- BUTTONS -->
+  <div class="mt-3">
+    <button *ngIf="!isEdit"
+            (click)="addSubCategory()"
+            class="btn btn-primary">
+      Add
+    </button>
+
+    <button *ngIf="isEdit"
+            (click)="updateSubCategory()"
+            class="btn btn-warning">
+      Update
+    </button>
+  </div>
+
+</div>

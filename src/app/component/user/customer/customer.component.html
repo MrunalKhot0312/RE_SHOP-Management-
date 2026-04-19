@@ -1,0 +1,101 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+
+  <div class="card shadow-lg border-0 rounded-4 p-4 register-card">
+
+    <!-- Title -->
+    <h3 class="text-center mb-3 fw-bold text-primary">Create Account</h3>
+    <h1 class="text-center text-muted mb-4">Join RE-SHOP today!!!</h1>
+
+    
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+
+    <div class="row">
+
+      <!-- Full Name -->
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-control input-anim"
+          placeholder="Enter full name"
+          [(ngModel)]="customer.name" name="name">
+      </div>
+
+      <!-- Username -->
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" class="form-control input-anim"
+          placeholder="Enter username"
+          [(ngModel)]="customer.username" name="username">
+      </div>
+
+      <!-- Email -->
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control input-anim"
+          placeholder="Enter email"
+          [(ngModel)]="customer.email" name="email">
+      </div>
+
+      <!-- Mobile -->
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Mobile</label>
+        <input type="text" class="form-control input-anim"
+          placeholder="Enter mobile"
+          [(ngModel)]="customer.mobile" name="mobile">
+      </div>
+
+      <!-- Address -->
+      <div class="col-12 mb-3">
+        <label class="form-label">Address</label>
+        <input type="text" class="form-control input-anim"
+          placeholder="Enter address"
+          [(ngModel)]="customer.address" name="address">
+      </div>
+
+      <!-- City -->
+      <div class="col-md-4 mb-3">
+        <label class="form-label">City</label>
+        <input type="text" class="form-control input-anim"
+          placeholder="City"
+          [(ngModel)]="customer.city" name="city">
+      </div>
+
+      <!-- State -->
+      <div class="col-md-4 mb-3">
+        <label class="form-label">State</label>
+        <input type="text" class="form-control input-anim"
+          placeholder="State"
+          [(ngModel)]="customer.state" name="state">
+      </div>
+
+      <!-- Pincode -->
+      <div class="col-md-4 mb-3">
+        <label class="form-label">Pincode</label>
+        <input type="text" class="form-control input-anim"
+          placeholder="Pincode"
+          [(ngModel)]="customer.pincode" name="pincode">
+      </div>
+
+      <!-- Password -->
+      <div class="col-12 mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control input-anim"
+          placeholder="Enter password"
+          [(ngModel)]="customer.password" name="password">
+      </div>
+
+    </div>
+
+    <!-- Button -->
+    <button class="btn btn-primary w-100 rounded-pill py-2 register-btn" (click)="save()">
+      Register
+    </button>
+
+    <!-- Footer -->
+    <p class="text-center mt-3">
+      Already have an account?
+      <a routerLink="/login" class="fw-semibold text-decoration-none">Login</a>
+    </p>
+
+  </div>
+
+</div>

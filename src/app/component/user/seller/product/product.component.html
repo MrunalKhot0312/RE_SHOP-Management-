@@ -1,0 +1,131 @@
+<div class="container mt-4">
+
+  <h3>{{ isEdit ? 'Edit Product' : 'Add Product' }}</h3>
+
+  <!-- FORM -->
+  <div class="card p-3 shadow-sm mb-4">
+
+    <!-- Product Name -->
+    <input class="form-control mb-2"
+           [(ngModel)]="newProduct.productName"
+           name="productName"
+           placeholder="Product Name">
+
+    <!-- Price -->
+    <input type="number"
+           class="form-control mb-2"
+           [(ngModel)]="newProduct.price"
+           name="price"
+           placeholder="Price">
+
+    <!-- Stock -->
+    <input type="number"
+           class="form-control mb-2"
+           [(ngModel)]="newProduct.stock"
+           name="stock"
+           placeholder="Stock">
+
+    <!-- CATEGORY -->
+    <select class="form-control mb-2"
+            [(ngModel)]="selectedCategoryId"
+            name="category"
+            (ngModelChange)="onCategoryChange($event)">
+
+      <option [ngValue]="null">-- Select Category --</option>
+
+      <option *ngFor="let c of categories" [ngValue]="c.id">
+        {{ c.name }}
+      </option>
+
+    </select>
+
+    <!-- SUBCATEGORY (DEPENDENT DROPDOWN) -->
+    <select class="form-control mb-2"
+            [(ngModel)]="newProduct.subCategoryId"
+            name="subCategoryId"
+            [disabled]="!selectedCategoryId">
+
+      <option [ngValue]="0">-- Select SubCategory --</option>
+
+      <option *ngFor="let s of subcategories" [ngValue]="s.id">
+        {{ s.name }}
+      </option>
+
+    </select>
+
+    <!-- IMAGE -->
+    <input type="file"
+           class="form-control mb-2"
+           (change)="onImageSelected($event)">
+
+    <img *ngIf="imagePreview"
+         [src]="imagePreview"
+         width="100"
+         class="mb-2 rounded border">
+
+    <!-- BUTTONS -->
+    <button class="btn btn-primary"
+            (click)="isEdit ? updateProduct() : addProduct()">
+      {{ isEdit ? 'Update Product' : 'Add Product' }}
+    </button>
+
+    <button class="btn btn-secondary ms-2"
+            (click)="resetForm()">
+      Clear
+    </button>
+
+  </div>
+
+  <!-- PRODUCT LIST -->
+  <h4>Product List</h4>
+
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Category</th>
+        <th>SubCategory</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let p of products">
+
+        <td>{{ p.id }}</td>
+
+        <td>
+          <img [src]="p.imageUrl"
+               width="60"
+               height="60"
+               class="rounded">
+        </td>
+
+        <td>{{ p.productName }}</td>
+        <td>₹ {{ p.price }}</td>
+        <td>{{ p.stock }}</td>
+
+        <td>{{ p.category?.name }}</td>
+        <td>{{ p.subCategory?.name }}</td>
+
+        <td>
+          <button class="btn btn-sm btn-warning"
+                  (click)="editProduct(p)">
+            Edit
+          </button>
+
+          <button class="btn btn-sm btn-danger ms-1"
+                  (click)="deleteProduct(p.id)">
+            Delete
+          </button>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+
+</div>

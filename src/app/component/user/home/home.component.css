@@ -1,0 +1,43 @@
+/* Background Gradient */
+body {
+  background: linear-gradient(135deg, #0d6efd, #6610f2);
+}
+
+/* Card Styling */
+.register-card {
+  max-width: 800px;
+  width: 100%;
+  background: #fff;
+  transition: 0.4s;
+}
+
+.register-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Input Animation */
+.input-anim {
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.input-anim:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 8px rgba(13, 110, 253, 0.5);
+  transform: scale(1.02);
+}
+
+/* Button Animation */
+.register-btn {
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Smooth labels */
+.form-label {
+  font-weight: 500;
+}

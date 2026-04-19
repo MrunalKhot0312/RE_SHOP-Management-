@@ -1,0 +1,69 @@
+/* 🌿 Eco Gradient Navbar */
+.premium-navbar {
+  background: linear-gradient(135deg, #1b5e20, #2e7d32, #00c853);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* Logo */
+.logo-text {
+  font-size: 26px;
+  color: #e8f5e9;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.logo-text:hover {
+  color: #a5d6a7;
+  text-shadow: 0 0 10px #69f0ae;
+}
+
+/* Nav Links */
+.nav-anim {
+  position: relative;
+  color: #e8f5e9 !important;
+  margin: 0 12px;
+  transition: 0.3s;
+}
+
+/* Underline effect */
+.nav-anim::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: #69f0ae;
+  transition: 0.4s;
+}
+
+.nav-anim:hover {
+  color: #69f0ae !important;
+  transform: translateY(-2px);
+}
+
+.nav-anim:hover::after {
+  width: 100%;
+}
+
+/* Buttons */
+.glow-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #69f0ae;
+}
+
+/* Seller Button Special */
+.btn-success {
+  background: #00c853;
+  border: none;
+}
+
+.btn-success:hover {
+  background: #00e676;
+}
+
+/* Toggler fix */
+.navbar-toggler-icon {
+  filter: invert(1);
+}
